@@ -67,6 +67,8 @@
 
                 <h3 class="order-options-title">Select Your Order Options</h3>
                 <form name="order" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="order">
+
                     <label for="coffee-selection">Choose your coffee:</label>
                     <select id="coffee-selection" class="order-dropdown" name="coffee_type">
                         <option value="espresso">Espresso</option>
@@ -136,8 +138,7 @@
     <script>
         // To display the thank you message on successful submission
         document.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
+            // Remove event.preventDefault to allow Netlify form submission
             document.getElementById('order-content').style.display = 'none';
             document.getElementById('thank-you-message').style.display = 'block';
         });
