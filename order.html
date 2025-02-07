@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Coffee - OCD Coffee</title>
+    <!-- Linking Font Awesome For icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Linking Swiper css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Add any additional styles here */
+        .thank-you-message {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- header \ navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <h2 class="logo-text">☕OCD Coffee</h2>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>    
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>    
+                </li>
+                <li class="nav-item">
+                    <a href="#menu" class="nav-link">Menu</a>    
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials" class="nav-link">Testimonials</a>    
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Gallery</a>    
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>    
+                </li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header> 
+
+    <main>
+        <!-- Order Now section -->
+        <section class="order-now-section" id="order-now">
+            <div class="section-content" id="order-content">
+                <h2 class="section-title">Order Your Favorite Coffee</h2>
+                <p class="text">Craving a cup of our delicious coffee? Place your order now and enjoy the best coffee experience delivered right to your door!</p>
+                
+                <h3 class="popular-items-title">Popular Items</h3>
+                <ul class="popular-items-list">
+                    <li class="popular-item">Espresso - A rich and bold coffee experience.</li>
+                    <li class="popular-item">Cappuccino - Creamy and frothy, perfect for any time of day.</li>
+                    <li class="popular-item">Latte - Smooth and milky, a favorite among coffee lovers.</li>
+                    <li class="popular-item">Mocha - A delightful blend of coffee and chocolate.</li>
+                    <li class="popular-item">Iced Coffee - Refreshing and perfect for warm days.</li>
+                </ul>
+
+                <h3 class="order-options-title">Select Your Order Options</h3>
+                <form name="order" method="POST" data-netlify="true">
+                    <label for="coffee-selection">Choose your coffee:</label>
+                    <select id="coffee-selection" class="order-dropdown" name="coffee_type">
+                        <option value="espresso">Espresso</option>
+                        <option value="cappuccino">Cappuccino</option>
+                        <option value="latte">Latte</option>
+                        <option value="mocha">Mocha</option>
+                        <option value="iced-coffee">Iced Coffee</option>
+                    </select>
+
+                    <label for="size-selection">Select Size:</label>
+                    <select id="size-selection" class="order-dropdown" name="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+
+                    <label for="food-selection">Add Food Options:</label>
+                    <select id="food-selection" class="order-dropdown" name="food_options">
+                        <option value="none">None</option>
+                        <option value="croissant">Croissant</option>
+                        <option value="muffin">Muffin</option>
+                        <option value="sandwich">Sandwich</option>
+                        <option value="salad">Salad</option>
+                        <option value="cake">Cake</option>
+                    </select>
+
+                    <h3 class="customer-details-title">Your Personal Details</h3>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" required>
+                
+                    <label for="delivery_address">Delivery Address:</label>
+                    <input type="text" id="delivery_address" name="delivery_address" required>
+                
+                    <button type="submit">Complete Order</button>
+                </form>
+
+                <h3 class="ordering-process-title">How to Order</h3>
+                <p class="text">Ordering is simple! Just follow these steps:</p>
+                <ol class="ordering-steps">
+                    <li>Select your favorite items from our menu.</li>
+                    <li>Add them to your cart.</li>
+                    <li>Proceed to checkout and fill in your delivery details.</li>
+                    <li>Enjoy your coffee delivered right to your door!</li>
+                </ol>
+
+                <div class="order-buttons">
+                    <a href="#" class="button order-now">Order Now</a>
+                    <a href="#contact" class="button contact-us">Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Thank You Message -->
+            <div class="thank-you-message" id="thank-you-message" style="display: none;">
+                <h2>Thank You for Your Order!</h2>
+                <p>Your order has been placed successfully. We appreciate your business!</p>
+                <p>We will contact you shortly to confirm your order details.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // To display the thank you message on successful submission
+        document.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            document.getElementById('order-content').style.display = 'none';
+            document.getElementById('thank-you-message').style.display = 'block';
+        });
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 OCD Coffee. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
